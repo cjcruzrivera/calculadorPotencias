@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block resultado %}
+<div class="row pt-4" id="resultado">
+        <div class="col-md-12">
+            <div class="card text-center">
+                <div class="card-header ">
+                    POTENCIALES DEBIDO A CONDUCTORES CARGADOS
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                    {% for fila in resultado %}
+                        <tr>
+                        {% for dato in fila %}
+                           <td>{{dato}}</td> 
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock resultado %}
+
+{% block content %}
+<form action="/" method="get">
+
+    <div class="form-group">
+        <label for="diferenciaPotencial">Diferencia de potencial Vo</label>
+        <input readonly class="form-control" name="diferenciaPotencial" value="{{potencial}}">
+    </div>
+    <div class="form-group">
+        <label for="cantidadPuntos">Número <i>m</i> de puntos de la rejilla</label>
+        <input readonly class="form-control" name="cantidadPuntos" value="{{cantidad}}">
+    </div>
+    <div class="form-group">
+        <label for="precision">Precisión deseada de los resultados</label>
+        <input readonly class="form-control" name="precision" value="{{precision}}">
+    </div>
+    <button class="btn btn-primary" type="submit">
+        CALCULAR NUEVAMENTE
+    </button>
+</form>
+{% endblock content %}
+
+
+
+    

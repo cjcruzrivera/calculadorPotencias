@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/#resultado" method="post" class="needs-validation" novalidate>
+
+    <div class="form-group">
+        <label for="diferenciaPotencial">Seleccione un valor positivo de la diferencia de potencial Vo</label>
+        <input class="form-control" id="diferenciaPotencial" name="diferenciaPotencial" type="number" required min="1" value="{{potencial}}">
+        <div class="invalid-feedback">
+            Se requiere una Diferencia de Potencial Vo positiva y diferente de cero
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cantidadPuntos">Seleccione el número <i>m</i> de puntos de la rejilla</label>
+        <input class="form-control" id="cantidadPuntos" name="cantidadPuntos" type="number" required min="4" value="{{cantidad}}">
+        <div class="invalid-feedback">
+            Los valores de <i>m</i> entre 10 y 40 funcionan bien. Grandes valores de <i>m</i> requieren cálculos muy
+            largos y valores pequeños de <i>m</i> dan una baja resolución.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="precision">Especifique la precisión deseada de los resultados</label>
+        <input class="form-control" id="precision" name="precision" type="number" required min="0.0001" max="0.1" step="0.0001" value="{{precision}}">
+        <div class="invalid-feedback">
+            Los valores razonables van desde 0,01 hasta 0,001. Cuanto mas pequeño sea el valor escogido, más iteraciones habrá que realizar
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">
+        CALCULAR
+    </button>
+</form>
+{% endblock content %}
