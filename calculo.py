@@ -18,7 +18,7 @@ def calcularPotencial(Vo, m, p):
     while True:
         print("i: " + str(i))
         i += 1
-        if(i == 2000):
+        if(i == 5000):
             return V
         for k in range(1, int(m)-1):
             for j in range(1, int(m)-1):
